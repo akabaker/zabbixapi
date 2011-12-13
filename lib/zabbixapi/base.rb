@@ -1,6 +1,7 @@
 #!/usr/bin/ruby
 
 require 'json'
+require 'logger'
 require 'net/http'
 require 'net/https'
 
@@ -11,10 +12,11 @@ module Zabbix
 
   class ZabbixApi
 
-    def initialize (api_url, api_user, api_password)
+    def initialize (api_url, api_user, api_password, logger)
       @api_url = api_url
       @api_user = api_user
       @api_password = api_password
+      @logger = logger
     end
 
     def do_request(message)
